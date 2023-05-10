@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<title> login </title>
+</head>
+<body>
+  <body>
+    <div class="login-page">
+      <div class="form">
+        <div class="login">
+          <div class="login-header">
+            <h3>LOGIN</h3>
+            <p>Please enter your credentials to login.</p>
+          </div>
+        </div>
+        <form method="POST" class="login-form">
+          {% csrf_token %}
+          <input type="text" name="username" placeholder="username"/>
+          <input type="password" name="password" placeholder="password"/>
+          <button>login</button>
+          <p class="message">Not registered? <a href="#">Create an account</a></p>
+        </form>
+        {% for msg in messages %}
+        {{msg}}
+        {% endfor %}
+      </div>
+    </div>
+</body>
+</body>
+</html>
